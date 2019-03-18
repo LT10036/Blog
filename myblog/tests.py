@@ -31,12 +31,14 @@ class jsonss(APIView):
 
         # 查询数据库，返回json集合
         datas = viewpoint.objects.all()
-        dataresp = pointseriliz(datas, many=True)
-        dataresp=dataresp.data
 
-        con={
-            'point':dataresp
-           }
+        dataresp = pointseriliz(datas, many=True)
+        dataresps=dataresp.data
+
+        con={   'point':dataresps,
+        'name':"aheeee"}
+
+
 
         return JsonResponse(con)
 
