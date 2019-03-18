@@ -1,4 +1,5 @@
 from django.test import TestCase
+from rest_framework.response import Response
 from rest_framework.views import APIView
 import json
 from myblog.seriliz import pointseriliz
@@ -17,7 +18,7 @@ class jsonss(APIView):
         names=request.GET['name']
         ages=request.GET['age']
 
-        return HttpResponse('ok')
+        return Response('ok')
 
 
     def post(self,request,*args,**kwargs):
@@ -28,19 +29,25 @@ class jsonss(APIView):
         datas=json.loads(datas)
         # print(datas['name'])
 
+        # print(datas)
 
         # 查询数据库，返回json集合，可根据情况选择不同序列化器
         # datas = viewpoint.objects.all()
         #
         # dataresp = pointseriliz(datas, many=True)
         # dataresps=dataresp.data
-        #
+
 
 
         # 自由选择数据库操作动作
         # data=viewpoint.objects.all().count()
         # # datas=pointseriliz(data,many=True)
         # # dataa=datas.data
+
+
+        # 普通表单数据获取
+        # user=request.data
+        # print(user)
 
         con={   'point':datas,
         'name':"aheeee"}
