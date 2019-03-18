@@ -24,18 +24,25 @@ class jsonss(APIView):
 
         # 获取json数据
 
-        # datas= request.body.decode()
-        # datas=json.loads(datas)
+        datas= request.body.decode()
+        datas=json.loads(datas)
         # print(datas['name'])
 
 
-        # 查询数据库，返回json集合
-        datas = viewpoint.objects.all()
+        # 查询数据库，返回json集合，可根据情况选择不同序列化器
+        # datas = viewpoint.objects.all()
+        #
+        # dataresp = pointseriliz(datas, many=True)
+        # dataresps=dataresp.data
+        #
 
-        dataresp = pointseriliz(datas, many=True)
-        dataresps=dataresp.data
 
-        con={   'point':dataresps,
+        # 自由选择数据库操作动作
+        # data=viewpoint.objects.all().count()
+        # # datas=pointseriliz(data,many=True)
+        # # dataa=datas.data
+
+        con={   'point':datas,
         'name':"aheeee"}
 
 
