@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myblog.views import response,register,register2
+from myblog.views import response,register,register2,login,login2
 from myblog.tests import jsonss
 
 urlpatterns = [
@@ -23,5 +23,8 @@ urlpatterns = [
     path('',response.as_view()),
     path('register',register),
     path('register2',register2),
-    path('ceshi',jsonss.as_view())
+    # path('ceshi',jsonss.as_view())
+    path('login',login),
+path('login2',login2),
+
 ]
