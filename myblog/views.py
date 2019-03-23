@@ -21,12 +21,15 @@ class response(APIView):
 
 
         # print(type(con)
+        hello = request.COOKIES.get('name')
+
 
 
 
 
         con={
             'point':dataresp,
+            'cookue':hello
 
         }
         return render(request,'index.html',context=con)
@@ -104,7 +107,7 @@ def login2(request):
                 password3=password2['tel']
                 if password==password3:
                     re=HttpResponse('登陆成功')
-                    re.set_cookie(name,password)
+                    re.set_cookie('name',password)
                     return re
 
                 else:
